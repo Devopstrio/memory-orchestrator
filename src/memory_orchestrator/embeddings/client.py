@@ -16,4 +16,5 @@ class EmbeddingClient:
         # Run synchronous embedding generation in a threadpool to prevent blocking the async event loop
         loop = asyncio.get_event_loop()
         embeddings = await loop.run_in_executor(None, self.model.encode, [text])
-        return embeddings[0].tolist()
+        import typing
+        return typing.cast(list[float], embeddings[0].tolist())
