@@ -1,6 +1,7 @@
 """Neo4j adapter for semantic knowledge graphs."""
-from neo4j import AsyncGraphDatabase
 import structlog
+from neo4j import AsyncGraphDatabase
+
 from memory_orchestrator.config.settings import get_settings
 
 logger = structlog.get_logger(__name__)
@@ -9,10 +10,10 @@ settings = get_settings()
 class Neo4jAdapter:
     def __init__(self) -> None:
         self.driver = AsyncGraphDatabase.driver(
-            settings.neo4j_uri, 
+            settings.neo4j_uri,
             auth=(settings.neo4j_user, settings.neo4j_password)
         )
-        
+
     async def close(self) -> None:
         await self.driver.close()
 

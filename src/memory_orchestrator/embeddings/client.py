@@ -1,7 +1,8 @@
 """Embeddings client using local Sentence Transformers."""
-from sentence_transformers import SentenceTransformer
-import structlog
 import asyncio
+
+import structlog
+from sentence_transformers import SentenceTransformer
 
 logger = structlog.get_logger(__name__)
 
@@ -10,7 +11,7 @@ class EmbeddingClient:
         logger.info("loading_embedding_model", model=model_name)
         # Load the local embedding model
         self.model = SentenceTransformer(model_name)
-        
+
     async def embed(self, text: str) -> list[float]:
         # Run synchronous embedding generation in a threadpool to prevent blocking the async event loop
         loop = asyncio.get_event_loop()

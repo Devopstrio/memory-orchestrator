@@ -1,9 +1,9 @@
 """Memory Compactor for summarizing and fading working memory."""
-import asyncio
 import structlog
+
+from memory_orchestrator.embeddings.client import EmbeddingClient
 from memory_orchestrator.storage.cache.redis_adapter import RedisAdapter
 from memory_orchestrator.storage.vector.pg_adapter import PgVectorAdapter
-from memory_orchestrator.embeddings.client import EmbeddingClient
 
 logger = structlog.get_logger(__name__)
 
@@ -13,7 +13,7 @@ class MemoryCompactor:
         self.cache = RedisAdapter()
         self.vector = PgVectorAdapter()
         self.embeddings = EmbeddingClient()
-        
+
     async def summarize_and_fade(self, raw_text: str) -> str:
         # In a real environment, call an LLM (OpenAI/Anthropic) to summarize.
         # For this orchestrator core, we simulate compaction logic.
