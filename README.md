@@ -31,7 +31,7 @@ By abstracting away the underlying storage complexities, it provides a unified R
 Our cognitive architecture is built to mimic human memory systems, ensuring LLMs have the right context at the right time without bloat.
 
 <div align="center">
-  <img src="./docs/assets/system_architecture.png" alt="System Architecture Blueprint" width="800">
+  <img src="./docs/assets/memory_architecture.jpg" alt="AI Memory Architecture Blueprint" width="800">
   <br/>
   <em>Figure 1: High-Level Cognitive Architecture and Data Flow</em>
 </div>
@@ -39,7 +39,7 @@ Our cognitive architecture is built to mimic human memory systems, ensuring LLMs
 ### Data Topology & Infrastructure
 
 <div align="center">
-  <img src="./docs/assets/realistic_architecture.png" alt="Realistic Cloud Topology" width="800">
+  <img src="./docs/assets/memory_topology.jpg" alt="AI Cognitive Cloud Topology" width="800">
   <br/>
   <em>Figure 2: 3D Topology of the Cognitive Storage Cluster (PgVector, Neo4j, Redis)</em>
 </div>
