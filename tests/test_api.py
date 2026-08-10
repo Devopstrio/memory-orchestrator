@@ -1,8 +1,8 @@
 """API Tests."""
+from typing import Any
 from unittest.mock import patch
 
 import pytest
-from typing import Any
 from fastapi.testclient import TestClient
 
 from memory_orchestrator.main import app
