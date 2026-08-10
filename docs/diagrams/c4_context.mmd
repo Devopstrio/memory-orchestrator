@@ -1,0 +1,11 @@
+```mermaid
+graph TD
+    User([User Application]) --> Gateway[API Gateway]
+    Gateway --> Orchestrator[Memory Orchestrator]
+    Orchestrator --> Embedding[Embedding Service]
+    Orchestrator --> Redis[(Redis Cache)]
+    Orchestrator --> Postgres[(PgVector DB)]
+    Orchestrator --> Neo4j[(Neo4j Graph)]
+    
+    Embedding -.-> Postgres
+```

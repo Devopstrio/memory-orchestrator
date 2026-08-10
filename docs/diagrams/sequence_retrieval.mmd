@@ -1,0 +1,19 @@
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Agent as LLM Agent
+    participant API as Memory API
+    participant Cache as Working Memory (Redis)
+    participant Vector as Episodic Memory (PgVector)
+    participant Graph as Relational Memory (Neo4j)
+    
+    Agent->>API: Retrieve Memory (query)
+    API->>Cache: Fetch short-term context
+    Cache-->>API: Context payload
+    API->>Vector: Vector Similarity Search
+    Vector-->>API: Top-K Similar Episodes
+    API->>Graph: Entity Traversal Search
+    Graph-->>API: Associated Nodes & Edges
+    API->>API: Deduplicate & Rank
+    API-->>Agent: Unified Memory Representation
+```

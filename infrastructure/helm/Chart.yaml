@@ -1,0 +1,6 @@
+apiVersion: v2
+name: memory-orchestrator
+description: Helm chart for memory-orchestrator
+type: application
+version: 1.0.0
+appVersion: "1.0.0"

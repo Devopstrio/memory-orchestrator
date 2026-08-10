@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memory-orchestrator
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: memory-orchestrator
+  template:
+    metadata:
+      labels:
+        app: memory-orchestrator
+    spec:
+      containers:
+      - name: api
+        image: devopstrio/memory-orchestrator:latest
+        ports:
+        - containerPort: 8080

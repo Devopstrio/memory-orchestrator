@@ -1,0 +1,13 @@
+name: CD
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Deploy to K8s
+      run: echo "Deploying Memory Orchestrator to Production K8s..."
