@@ -2,6 +2,7 @@
 from unittest.mock import patch
 
 import pytest
+from typing import Any
 from fastapi.testclient import TestClient
 
 from memory_orchestrator.main import app
@@ -10,7 +11,7 @@ client = TestClient(app)
 
 @pytest.mark.asyncio
 @patch("memory_orchestrator.api.v1.endpoints.memory.mem_router")
-async def test_store_memory(mock_mem_router) -> None:
+async def test_store_memory(mock_mem_router: Any) -> None:
     # Mock the async method
     from unittest.mock import AsyncMock
     mock_mem_router.process_store = AsyncMock()
@@ -26,7 +27,7 @@ async def test_store_memory(mock_mem_router) -> None:
 
 @pytest.mark.asyncio
 @patch("memory_orchestrator.api.v1.endpoints.memory.mem_router")
-async def test_retrieve_memory(mock_mem_router) -> None:
+async def test_retrieve_memory(mock_mem_router: Any) -> None:
     # Mock the async method to return a specific string
     from unittest.mock import AsyncMock
     mock_mem_router.process_retrieve = AsyncMock(return_value="Synthesized from Cache: test | Vector: test")
